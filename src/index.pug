@@ -1,7 +1,7 @@
 include ./mixins.pug
 
 <!DOCTYPE html>
-html(lang="en")
+html(lang="ru")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -10,6 +10,71 @@ html(lang="en")
   body
     .wrapper
       .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+        .welcome-section
+          section.parallax
+          section.section.hero
+            .container.hero__container
+              header.header.hero__header
+                .hero__logo
+                  .logo EE
+                .hero__menu
+                  nav.nav
+                  - var menuNav = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                  ul.nav__list
+                    each item in menuNav
+                      li.nav__item
+                        a(href="#").nav__link #{item}
+                .hero__links
+                  .social
+                  - var socialIcons = ['insta', 'vk', 'github'];
+                    ul.social__list
+                      each item in socialIcons
+                        li.socials__item(class=`${index === 1 ? 'active' : ''}`)
+                          a(href="").socials__link
+                            +icon(`${item}`, 'socials__icon')
+              .hero__content
+                .user-info
+                  .user-info__desk Личный сайт веб разработчика
+                  h1.user-info__name Евгений Яковлев
+              .hero__btn
+                .scroll-down-btn Скролл
+          section.section.about
+            .container.about__container
+              .about__left
+                .user 
+                  .user__pic.avatar
+                    +image("content/user.jpg", "avatar__pic")
+                  .user__desk
+                    ul.user__list
+                    -
+                      var items = [
+                        ['Проживаю', 'Курск'],
+                        ['Возраст', '32'],
+                        ['Родился', ' 27 мая 1987 г.'],
+                      ]
+                    each item in items
+                      li.user__desc-item
+                        .user__key #{item[0]}
+                        .user__value #{item[1]}   
+              .about__rigth
+                  h4.about__prolog Привет, меня зовут
+                  h2.about__name Евгений Яковлев
+                  .about__text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                  .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+          .triangles
+            svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+              polygon(points="0,0 0,100 1000,100")
+            svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+              polygon(points="0,100 1000,100 1000,0")
+        .middle-section
+          section.section.skills
+          section.section.works
+          .triangles
+            svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+              polygon(points="0,0 0,100 1000,100")
+            svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+              polygon(points="0,100 1000,100 1000,0")
+        .footer-section
+          section.section.reviews
+          section.section.contacts
+      footer.footer
