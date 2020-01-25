@@ -15,66 +15,180 @@ html(lang="ru")
           section.section.hero
             .container.hero__container
               header.header.hero__header
-                .hero__logo
+                .header__logo
                   .logo EE
-                .hero__menu
+                .header__menu
                   nav.nav
                   - var menuNav = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
                   ul.nav__list
                     each item in menuNav
                       li.nav__item
                         a(href="#").nav__link #{item}
-                .hero__links
-                  .social
-                  - var socialIcons = ['insta', 'vk', 'github'];
-                    ul.social__list
-                      each item in socialIcons
-                        li.socials__item(class=`${index === 1 ? 'active' : ''}`)
-                          a(href="").socials__link
-                            +icon(`${item}`, 'socials__icon')
+                .header__links
+                  .ul.socials
+                    - var socialIcons = ['insta', 'vk', 'github'];
+                    each item in socialIcons
+                      li.socials__item
+                        a(href="").socials__link
+                          +icon(`${item}`, 'socials__icon')
               .hero__content
                 .user-info
-                  .user-info__desk Личный сайт веб разработчика
+                  .user-info__desk Личный сайт </br> веб разработчика
                   h1.user-info__name Евгений Яковлев
               .hero__btn
                 .scroll-down-btn Скролл
           section.section.about
-            .container.about__container
-              .about__left
-                .user 
-                  .user__pic.avatar
-                    +image("content/user.jpg", "avatar__pic")
-                  .user__desk
-                    ul.user__list
-                    -
-                      var items = [
-                        ['Проживаю', 'Курск'],
-                        ['Возраст', '32'],
-                        ['Родился', ' 27 мая 1987 г.'],
-                      ]
-                    each item in items
-                      li.user__desc-item
-                        .user__key #{item[0]}
-                        .user__value #{item[1]}   
-              .about__rigth
-                  h4.about__prolog Привет, меня зовут
-                  h2.about__name Евгений Яковлев
-                  .about__text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-                  .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            .container
+              .about__columns
+                .about__user
+                  .user
+                    .user__avatar
+                      .user-avatar
+                        +image('content/user.jpg', '.user-avatar__img')
+                    .user__about
+                      - 
+                        var userinfo = [
+                          ['Проживаю:', "Курск"],
+                          ['Возраст:', "32 года"],
+                          ['Родился:', "27 мая 1987"],
+                        ];
+                      table.user__table
+                        each item in userinfo
+                          tr
+                            td.user__table-title #{item[0]}
+                            td.user__table-content #{item[1]}
+                .about__user-text
+                  .about__main-text-content
+                    .about__desc Привет, меня зовут
+                    .about__title Владимир Астаханов
+                    .about__text-info
+                      p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                  .about__ps
+                    | Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
           .triangles
             svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
               polygon(points="0,0 0,100 1000,100")
             svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
               polygon(points="0,100 1000,100 1000,0")
+
         .middle-section
-          section.section.skills
+          section.section.skills.section--skills
+            .container
+              .skills__title
+                h2.section-title.section-title--skills Чем я могу быть полезен
+                .section__text
+                  p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+              .skiils__content
+                ul.skills-graphic
+                  -
+                    var items = [
+                      ["Front-end", ["HTML5", "CSS3", "Javascript", "Jquery и Vue.js"]],
+                      ["Workflow", ["GIT", "Terminal", "Gulp", "Webpack"]],
+                    ];
+                  each row in items
+                    li.skills-graphic__item
+                      .skills-row
+                        .skills-row__title #{row[0]}
+                        .skills-row__content  
+                          ul.skills-list
+                            each skill in row[1]
+                              li.skills-list__item
+                                .skill
+                                  svg(viewBox="0 0 100 100").skill__circle-shape
+                                    circle(cx="50" cy="50" r="40").skill__circle.skill__circle_under
+                                    circle(cx="50" cy="50" r="40" ref="color-circle" stroke="url(#gradient)" transform='rotate(180 50 50)').skill__circle.skill__circle_above
+                                    linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
+                                      stop(offset="0%" stop-color="#5500f2")
+                                      stop(offset="100%" stop-color="#8f00ef")
+                                  .skill__circle-text #{skill}
+
           section.section.works
+            .container
+              .works__title
+                .section-title Мои работы
+              .works__content
+                .slider-works
+                  .slider-works__display
+                    .slider-works__pic
+                      +image("content/1.jpg", "slider-work__img")
+                    .slider-works__btns
+                      a.slider-btn.slider-btn--next
+                      a.slider-btn.slider-btn--prev
+                    .slider-works__thumbs
+                      ul.slider-thumbs
+                        -for (var i = 0; i < 4; i++)
+                          li.slider-thumbs__item
+                            a.slider-thumbs__link
+                              img.slider-thumbs__img
+                  .slider-works__info
+                    .slider-works__tags
+                      ul.tags
+                        - var items = ["HTML", "CSS","JavaScript"];
+                        each item in items
+                          li.tags__item #{item}
+                    .slider-works__info-block
+                      h3.slider-works__info-title Сайт школы образования
+                      .slider-works__info-desc Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                      .slider-works__info-btns
+                        a.iconend-link Посмотреть сайт
+        .footer-section
           .triangles
             svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
-              polygon(points="0,0 0,100 1000,100")
+              polygon(points="0,0 1000,0 1000,100")
             svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
-              polygon(points="0,100 1000,100 1000,0")
-        .footer-section
+              polygon(points="0,0 0,100 1000,0")
           section.section.reviews
+            .container
+              .reviews__title
+                .section-title Что обо мне говорят
+                .reviews__btns
+                  a.slider-btn.slider-btn--next
+                  a.slider-btn.slider-btn--prev 
+              .reviews__slider
+                .slider-reviews
+                  .slider-reviews__btns
+                  .slider-reviews__content
+                    ul.slider-reviews-block
+                      - for (var x = 0; x < 2; x++) 
+                        li.slider-reviews-block__item
+                          .slider-reviews-block__text
+                            p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                          .slider-reviews-block__user-info
+                            .slider-reviews-block__pic
+                              .user-avatar.user-avatar--reviews
+                                +image("content/user.jpg", "user-avatar__img")
+                            .slider-reviews-block__info
+                              .slider-reviews-block__name Ковальчук Дмитрий 
+                              .slider-reviews-block__desc Основатель LoftSchool
           section.section.contacts
+            .container
+              .contacts__title
+                .section-title Связаться со мной
+              .contacts__form
+                form.form
+                  .form__row
+                    - 
+                      var fields = [
+                        ['user', 'Введите ваше имя', 'Ковальчук Дмитрий'],
+                        ['envelope', 'Введите ваш email', 'loftschool@study.com'],
+                      ]
+                    each item in fields
+                      label.form-block(data-title=item[1])
+                        .form-block__container
+                          +icon(`${item[0]}`, 'form-block__icon') 
+                          .form-block__field
+                            input(type="text" placeholder=item[2]).form-block__input
+                  .form__row.form__row--extra-margin
+                    label.form-block(data-title="Сообщение к письму")
+                      .form-block__container.form-block__container_align_top
+                        +icon('message', 'form-block__icon') 
+                        .form-block__field
+                          textarea(
+                            placeholder="Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса"
+                          ).form-block__input
+                  .from__row
+                    input(type="submit" value="отправить").gradient-btn.form__submit
+
+
+
       footer.footer
