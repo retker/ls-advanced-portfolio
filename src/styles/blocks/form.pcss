@@ -16,6 +16,15 @@
     &:last-child {
         margin-right: 0;
     }
+
+    &::before {
+        content: attr(data-title);
+        margin-bottom: 21px;
+        display: block;
+        font-weight: 600;
+        color: rgba(65,76,99,.3);
+        margin-left: 50px;
+    }
 }
 
 .form-block__container {
@@ -27,11 +36,13 @@
     background: transparent;
     border: 0 none;
     width: 100%;
+    padding: 6px 0;
 
     &::placeholder {
       color: $text-color;
       font-size: 18px;
       font-weight: bold;
+      width: 60%;
     }
 
     &:focus {
