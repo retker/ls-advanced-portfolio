@@ -19,11 +19,11 @@ html(lang="ru")
                   .logo EE
                 .header__menu
                   nav.nav
-                  - var menuNav = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
-                  ul.nav__list
-                    each item in menuNav
-                      li.nav__item
-                        a(href="#").nav__link #{item}
+                    - var menuNav = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                    ul.nav__list
+                      each item in menuNav
+                        li.nav__item
+                          a(href="#").nav__link #{item}
                 .header__links
                   .ul.socials
                     - var socialIcons = ['insta', 'vk', 'github'];
@@ -73,36 +73,37 @@ html(lang="ru")
 
         .middle-section
           section.section.skills.section--skills
-            .container
+            .container.container__skills
               .skills__title
                 h2.section-title.section-title--skills Чем я могу быть полезен
                 .section__text
                   p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-              .skiils__content
-                ul.skills-graphic
-                  -
-                    var items = [
-                      ["Front-end", ["HTML5", "CSS3", "Javascript", "Jquery и Vue.js"]],
-                      ["Workflow", ["GIT", "Terminal", "Gulp", "Webpack"]],
-                    ];
-                  each row in items
-                    li.skills-graphic__item
-                      .skills-row
-                        .skills-row__title #{row[0]}
-                        .skills-row__content  
-                          ul.skills-list
-                            each skill in row[1]
-                              li.skills-list__item
-                                .skill
-                                  svg(viewBox="0 0 100 100").skill__circle-shape
-                                    circle(cx="50" cy="50" r="40").skill__circle.skill__circle_under
-                                    circle(cx="50" cy="50" r="40" ref="color-circle" stroke="url(#gradient)" transform='rotate(180 50 50)').skill__circle.skill__circle_above
-                                    linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
-                                      stop(offset="0%" stop-color="#5500f2")
-                                      stop(offset="100%" stop-color="#8f00ef")
-                                  .skill__circle-text #{skill}
+              .skills__content
+                .skills__content-wraper
+                  ul.skills-graphic
+                    -
+                      var items = [
+                        ["Front-end", ["HTML5", "CSS3", "Javascript", "Jquery и Vue.js"]],
+                        ["Workflow", ["GIT", "Terminal", "Gulp", "Webpack"]],
+                      ];
+                    each row in items
+                      li.skills-graphic__item
+                        .skills-row
+                          .skills-row__title #{row[0]}
+                          .skills-row__content  
+                            ul.skills-list
+                              each skill in row[1]
+                                li.skills-list__item
+                                  .skill
+                                    svg(viewBox="0 0 100 100").skill__circle-shape
+                                      circle(cx="50" cy="50" r="40").skill__circle.skill__circle_under
+                                      circle(cx="50" cy="50" r="40" ref="color-circle" stroke="url(#gradient)" transform='rotate(180 50 50)').skill__circle.skill__circle_above
+                                      linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
+                                        stop(offset="0%" stop-color="#5500f2")
+                                        stop(offset="100%" stop-color="#8f00ef")
+                                    .skill__circle-text #{skill}
 
-          section.section.works
+          section.section.works.section--works
             .container
               .works__title
                 .section-title Мои работы
@@ -112,8 +113,8 @@ html(lang="ru")
                     .slider-works__pic
                       +image("content/1.jpg", "slider-work__img")
                     .slider-works__btns
-                      a.slider-btn.slider-btn--next
-                      a.slider-btn.slider-btn--prev
+                      a.slider-works__btn.slider-works__btn--next
+                      a.slider-works__btn.slider-works__btn--prev
                     .slider-works__thumbs
                       ul.slider-thumbs
                         -for (var i = 0; i < 4; i++)
@@ -137,13 +138,13 @@ html(lang="ru")
               polygon(points="0,0 1000,0 1000,100")
             svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
               polygon(points="0,0 0,100 1000,0")
-          section.section.reviews
+          section.section.reviews.section--reviews
             .container
               .reviews__title
                 .section-title Что обо мне говорят
                 .reviews__btns
-                  a.slider-btn.slider-btn--next
-                  a.slider-btn.slider-btn--prev 
+                  a.reviews__btn.reviews__btn--prev
+                  a.reviews__btn.reviews__btn--next 
               .reviews__slider
                 .slider-reviews
                   .slider-reviews__btns
@@ -160,7 +161,7 @@ html(lang="ru")
                             .slider-reviews-block__info
                               .slider-reviews-block__name Ковальчук Дмитрий 
                               .slider-reviews-block__desc Основатель LoftSchool
-          section.section.contacts
+          section.section.contacts.section--contacts
             .container
               .contacts__title
                 .section-title Связаться со мной
@@ -201,7 +202,7 @@ html(lang="ru")
             nav.nav.nav--color-white.footer__data-nav
               ul.nav__list
                 each item in menuNav
-                  li.nav__item
+                  li.nav__item--footer
                     a(href="#").nav__link #{item}
             .footer__data-content
               .footer__data-col

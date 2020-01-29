@@ -37,6 +37,21 @@ body {
   }
 }
 
+.container__skills {
+  position: relative;
+
+      &::before {
+      content: "";
+      position: absolute;
+      background: url('~images/decor/bag.png') left bottom / contain no-repeat;
+      display: block;
+      bottom: 5%;
+      height: 79%;
+      width: 47%;
+      left: -10%;
+  } 
+}
+
 .fullscreen-section {
   height: 100vh;
   min-height: 650px;
