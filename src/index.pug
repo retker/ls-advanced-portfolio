@@ -115,12 +115,11 @@ html(lang="ru")
                     .slider-works__btns
                       a.slider-works__btn.slider-works__btn--next
                       a.slider-works__btn.slider-works__btn--prev
-                    .slider-works__thumbs
-                      ul.slider-thumbs
-                        -for (var i = 0; i < 4; i++)
-                          li.slider-thumbs__item
-                            a.slider-thumbs__link
-                              img.slider-thumbs__img
+                    ul.slider-thumbs
+                      -for (var i = 2; i < 6; i++)
+                        li.slider-thumbs__item
+                          a.slider-thumbs__link
+                            +image(`content/${i}.jpg`, "slider-thumbs__img")
                   .slider-works__info
                     .slider-works__tags
                       ul.tags
