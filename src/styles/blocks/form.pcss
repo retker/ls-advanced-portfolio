@@ -19,12 +19,22 @@
 
     &::before {
         content: attr(data-title);
-        margin-bottom: 21px;
+        /* margin-bottom: 21px; */
         display: block;
         font-weight: 600;
         color: rgba(65,76,99,.3);
         margin-left: 50px;
+        position: relative;
+        top: 48%;
+        transition: top $speed;
     }
+
+    &:hover,:focus,:active {
+        &::before {
+            top: 0;
+            transition: top $speed;
+        }
+      }
 }
 
 .form-block__container {

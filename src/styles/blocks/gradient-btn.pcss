@@ -8,4 +8,10 @@
     font-weight: bold;
     border-radius: 39px 3px;
     cursor: pointer;
+    transition: border-radius $speed;
+
+    &:hover {
+      border-radius: 3px 39px;
+      transition: border-radius $speed;
+    }
   }
