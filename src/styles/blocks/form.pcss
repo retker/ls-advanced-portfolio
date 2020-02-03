@@ -29,7 +29,7 @@
         transition: top $speed;
     }
 
-    &:hover,:focus,:active {
+    &:link,&:visited,&:hover,&:active,&:focus,&:empty {
         &::before {
             top: 0;
             transition: top $speed;
@@ -48,12 +48,21 @@
     width: 100%;
     padding: 6px 0;
 
-    &::placeholder {
+    &:empty {
+        .form-block {
+            &::before {
+                top: 48%;
+                transition: top $speed;
+            }
+        }
+    }
+
+    /* &::placeholder {
       color: $text-color;
       font-size: 18px;
       font-weight: bold;
       width: 60%;
-    }
+    } */
 
     &:focus {
         outline: none;
