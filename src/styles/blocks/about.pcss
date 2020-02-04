@@ -4,9 +4,12 @@
   
   .about__columns {
     display: flex;
-    /* padding: 169px 17% 268px; */
     padding: 0 17% 11%;
     justify-content: space-between;
+
+    @include tablets {
+      padding: 0 5% 11% 5%;
+    }
   }
   
   .about__user-text {
@@ -35,5 +38,10 @@
   
   .about__ps {
     font-style: italic;
-    margin-bottom: 36px;
+    padding-bottom: 36px;
+
+    @include tablets {
+      padding: 7px 0;
+      line-height: 24px;
+    }
   }
