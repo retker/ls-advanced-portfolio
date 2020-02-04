@@ -2,5 +2,12 @@ node_modules
 .DS_Store
 .vscode
 .idea
-dist
+src
 *.log
+env.paths.json
+package.json
+postcss.config.js
+readme.md
+reg-util.js
+webpack.config.js
+yarn.lock
