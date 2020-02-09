@@ -1,9 +1,26 @@
 .form {
-    width: 60%
+    width: 60%;
+
+    @include desktop {
+        width: 100%;
+    }
 }
 .form__row {
     display: flex;
     margin-bottom: 40px;
+
+    &--center {
+        @include desktop {
+            /* display: flex; */
+            justify-content: center;
+        }
+    }
+
+    &--wrap {
+        @include phones {
+            flex-direction: column;
+        }
+    }
 }
 
 
@@ -12,6 +29,16 @@
     border-bottom: 1px solid;
     padding-bottom: 0.875rem;
     flex: 1;
+
+    @include phones {
+        margin-right: 0;
+        margin-bottom: 40px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+    }
 
     &:last-child {
         margin-right: 0;
@@ -48,6 +75,10 @@
     width: 100%;
     padding: 6px 0;
 
+    @include desktop {
+        text-align: center;
+    }
+
     &:empty {
         .form-block {
             &::before {
@@ -56,13 +87,6 @@
             }
         }
     }
-
-    /* &::placeholder {
-      color: $text-color;
-      font-size: 18px;
-      font-weight: bold;
-      width: 60%;
-    } */
 
     &:focus {
         outline: none;

@@ -1,0 +1,25 @@
+.burger-menu {
+    position: relative;
+    display: block;
+    height: 20px;
+    width: 24px;
+    background-image: linear-gradient(to bottom, transparent 40%, #414c63 40%, #414c63 60%, transparent 60%);
+    background-color: transparent;
+
+    &::before,&::after {
+        position: absolute;
+        left: 0;
+        height: 4px;
+        width: 24px;
+        background-color: #414c63;
+        content: "";
+    }
+
+    &::before {
+        top: 0;
+    }
+
+    &::after {
+        bottom: 0;
+    }  
+}

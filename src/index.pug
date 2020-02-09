@@ -31,6 +31,8 @@ html(lang="ru")
                       li.socials__item
                         a(href="").socials__link
                           +icon(`${item}`, 'socials__icon')
+                .header__burger
+                  button.burger-menu
               .hero__content
                 .user-info
                   .user-info__desk Личный сайт </br> веб разработчика
@@ -104,7 +106,7 @@ html(lang="ru")
                                     .skill__circle-text #{skill}
 
           section.section.works.section--works
-            .container
+            .container.container--works
               .works__title
                 .section-title Мои работы
               .works__content
@@ -113,8 +115,8 @@ html(lang="ru")
                     .slider-works__pic
                       +image("content/1.jpg", "slider-work__img")
                     .slider-works__btns
-                      a.slider-works__btn.slider-works__btn--next
-                      a.slider-works__btn.slider-works__btn--prev
+                      button.slider-works__btn.slider-works__btn--next
+                      button.slider-works__btn.slider-works__btn--prev
                     ul.slider-thumbs
                       -for (var i = 2; i < 6; i++)
                         li.slider-thumbs__item
@@ -142,8 +144,8 @@ html(lang="ru")
               .reviews__title
                 .section-title Что обо мне говорят
                 .reviews__btns
-                  a.reviews__btn.reviews__btn--prev
-                  a.reviews__btn.reviews__btn--next 
+                  button.reviews__btn.reviews__btn--prev
+                  button.reviews__btn.reviews__btn--next 
               .reviews__slider
                 .slider-reviews
                   .slider-reviews__content
@@ -165,7 +167,7 @@ html(lang="ru")
                 .section-title Связаться со мной
               .contacts__form
                 form.form
-                  .form__row
+                  .form__row.form__row--wrap
                     - 
                       var fields = [
                         ['user', 'Введите ваше имя'],
@@ -183,8 +185,8 @@ html(lang="ru")
                         +icon('message', 'form-block__icon') 
                         .form-block__field
                           textarea.form-block__input
-                  .from__row
-                    input(type="submit" value="отправить").gradient-btn.form__submit
+                  .form__row.form__row--center
+                    button(type="submit").gradient-btn.form__submit отправить
 
       footer.footer
         .container.footer__container

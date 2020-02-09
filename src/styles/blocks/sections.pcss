@@ -1,5 +1,9 @@
 .section--skills {
     padding-top: 150px;
+
+    @include tablets {
+        padding-bottom: 320px;
+    }
 }
 
 .section--works {
@@ -22,6 +26,10 @@
     font-weight: 700;
     line-height: 36px;
 
+    @include tablets {
+        text-align: center;
+    }
+
     &--skills {
         margin-bottom: 59px;
     }
@@ -34,4 +42,8 @@
     font-size: 16px;
     font-weight: 400;
     max-width: 580px;
+
+    @include tablets {
+        text-align: center;
+    }
 }

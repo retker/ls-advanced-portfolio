@@ -1,8 +1,13 @@
 .slider-thumbs {
+    display: block;
     position: absolute;
     right: 0;
     bottom: 0;
     width: 17%;
+
+    @include phones {
+        display: none;
+    }
 }
 
 .slider-thumbs__item {

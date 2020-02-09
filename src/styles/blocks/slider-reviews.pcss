@@ -6,6 +6,11 @@
     width: 24%;
     margin-left: 95px;
     margin-right: 84px;
+
+    @include desktop {
+        width: 32%;
+    }
+
     &::before {
         content: "";
         display: block;
@@ -16,6 +21,20 @@
         position: absolute;
         top: 0;
         left: -100px;
+    }
+
+    @include phones {
+        flex-basis: 100%;
+        min-width: 100%;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 0;
+
+    &::before {
+        display: none;
+    }   
+
     }
 }
 .slider-reviews-block__text {

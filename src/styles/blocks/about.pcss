@@ -10,18 +10,31 @@
     @include tablets {
       padding: 0 5% 11% 5%;
     }
+
+    @include phones {
+      flex-direction: column;
+      padding: 0 0 10%;
+    }
   }
   
+  .about__user {
+    width: 36%;
+
+    @include phones {
+      width: 100%;
+    }
+  }
+
   .about__user-text {
     color: rgba($text-color, .5);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 56%;
-  }
-  
-  .about__user {
-    width: 36%;
+
+    @include phones {
+      width: 100%;
+    }
   }
   
   .about__desc {

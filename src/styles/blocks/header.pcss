@@ -7,4 +7,23 @@
   .header__menu {
     display: flex;
     align-items: center;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  .header__burger {
+    display: none;
+
+    @include desktop {
+      display: block;
+    }
+  }
+
+  .header__links {
+
+    @include phones {
+      display: none;
+    }
   }

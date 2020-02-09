@@ -1,11 +1,27 @@
 .slider-works {
     display: flex;
     justify-content: space-between;
+
+    @include desktop {
+      flex-direction: column;
+      /* align-items: center; */
+    }
 }
 
 .slider-works__display {
     width: 65%;
     position: relative;
+    overflow: hidden;
+
+    @include desktop {
+      width: 85%;
+      margin-bottom: 100px;
+    }
+
+    @include phones {
+      width: 100%
+    }
+
 
     &::before {
         /* content: attr(data-slide); */
@@ -23,11 +39,28 @@
 }
 
 .slider-works__info {
-    width: 24%;
+    width: 25%;
+
+    @include desktop {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 }
 
 .slider-works__tags {
     margin-bottom: 50px;
+}
+
+.slider-works__info-block {
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 30%;
+    text-align: center;
+  }
 }
 
 .slider-works__info-title {

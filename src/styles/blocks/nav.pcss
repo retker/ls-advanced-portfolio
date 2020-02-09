@@ -7,6 +7,10 @@
   .nav__list {
     display: flex;
     align-items: center;
+
+    @include desktop {
+      flex-wrap: wrap;
+    }
   }
   
   .nav__item {
@@ -19,6 +23,5 @@
   }
  
   .nav__link {
-    /* text-decoration: none; */
     white-space: nowrap;
   } 
