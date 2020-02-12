@@ -1,5 +1,6 @@
 include ./mixins.pug
 
+
 <!DOCTYPE html>
 html(lang="ru")
   head
@@ -11,7 +12,8 @@ html(lang="ru")
     .wrapper
       .maincontent
         .welcome-section
-          section.parallax
+          include ./templates/components/parallax.pug
+            
           section.section.hero
             .container.hero__container
               header.header.hero__header
@@ -81,30 +83,30 @@ html(lang="ru")
                 .section__text
                   p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
               .skills__content
-                .skills__content-wraper
-                  ul.skills-graphic
-                    -
-                      var items = [
-                        ["Front-end", ["HTML5", "CSS3", "Javascript", "Jquery и Vue.js"]],
-                        ["Workflow", ["GIT", "Terminal", "Gulp", "Webpack"]],
-                      ];
-                    each row in items
-                      li.skills-graphic__item
-                        .skills-row
-                          .skills-row__title #{row[0]}
-                          .skills-row__content  
-                            ul.skills-list
-                              each skill in row[1]
-                                li.skills-list__item
-                                  .skill
-                                    svg(viewBox="0 0 100 100").skill__circle-shape
-                                      circle(cx="50" cy="50" r="40").skill__circle.skill__circle_under
-                                      circle(cx="50" cy="50" r="40" ref="color-circle" stroke="url(#gradient)" transform='rotate(180 50 50)').skill__circle.skill__circle_above
-                                      linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
-                                        stop(offset="0%" stop-color="#5500f2")
-                                        stop(offset="100%" stop-color="#8f00ef")
-                                    .skill__circle-text #{skill}
-
+                #skills-component
+                //- .skills__content-wraper
+                //-   ul.skills-graphic
+                //-       -
+                //-         var items = [
+                //-           ["Front-end", ["HTML5", "CSS3", "Javascript", "Jquery и Vue.js"]],
+                //-           ["Workflow", ["GIT", "Terminal", "Gulp", "Webpack"]],
+                //-           ];
+                //-       each row in items
+                //-         li.skills-graphic__item
+                //-           .skills-row
+                //-             .skills-row__title #{row[0]}
+                //-             .skills-row__content
+                //-               ul.skills-list
+                //-                 each skill in row[1]
+                //-                   li.skills-list__item
+                //-                     .skill
+                //-                       svg(viewBox="0 0 100 100").skill__circle-shape
+                //-                         circle(cx="50" cy="50" r="40").skill__circle.skill__circle_under
+                //-                         circle(cx="50" cy="50" r="40" ref="color-circle" stroke="url(#gradient)" transform='rotate(180 50 50)').skill__circle.skill__circle_above
+                //-                         linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
+                //-                           stop(offset="0%" stop-color="#5500f2")
+                //-                           stop(offset="100%" stop-color="#8f00ef")
+                //-                       .skill__circle-text #{ skill }            
           section.section.works.section--works
             .container.container--works
               .works__title
@@ -217,3 +219,5 @@ html(lang="ru")
                   .text-quote__text
                     p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете.
                   .text-quote__author Martin Golding
+
+include ./templates/entry.pug
